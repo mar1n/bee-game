@@ -9,24 +9,34 @@ export default function QueenBee() {
         points: 75,
         quantity: 5
     });
-    cosnt [dronebee, setDronebee] = useState( {
+    const [dronebee, setDronebee] = useState( {
         points: 50,
         quantity: 8
     })
     const hitQueen = () => {
+    //setQueen({points: queen.points - 8});
+    if(workerbee.points - 10 === 0) {
+        console.log('10');
+        setWorkerbee({...workerbee, points: 75, quantity: workerbee.quantity - 1});
+    }else if (workerbee.points < 10) {
+        setWorkerbee({...workerbee, points: workerbee.points - 10  + 75, quantity: workerbee.quantity - 1});
+        //setWorkerbee({quantity: quantity -1});
+    } else {
+        setWorkerbee({...workerbee, points: workerbee.points - 10 });
+    }
     
-    setQueen({points: queen.points - 8});
-    setWorkerbee({points: workerbee.points - 10 });
-    setDronebee({points: dronenee.points - 12})
+    setDronebee({points: dronebee.points - 12})
 }
     return(
         <>
             
                 <p>{queen.points}</p>
-            
-            
-                <p>{workerbee.points}</p>
-            
+                {
+                    Array(workerbee.quantity).fill(1).map(worker => <div key={worker} className='worker'></div>)
+                }
+            {workerbee.quantity !== 0 && 
+                <p>{workerbee.points} {workerbee.quantity}</p>
+            }
             <button onClick={hitQueen}>Hit</button>
         </>
     );
