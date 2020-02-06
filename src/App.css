@@ -8,6 +8,12 @@
   }
 }
 
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
 .queen {
   display: block;
   background-color: pink;
@@ -21,6 +27,7 @@
   height: 20px;
   width: 20px;
 }
+
 .dronebee {
   display: block;
   background-color: chartreuse;
