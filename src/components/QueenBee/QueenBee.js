@@ -15,16 +15,18 @@ export default function QueenBee() {
     })
     const hitQueen = () => {
     //setQueen({points: queen.points - 8});
-    if(workerbee.points - 10 === 0) {
-        console.log('10');
-        setWorkerbee({...workerbee, points: 75, quantity: workerbee.quantity - 1});
-    }else if (workerbee.points < 10) {
-        setWorkerbee({...workerbee, points: workerbee.points - 10  + 75, quantity: workerbee.quantity - 1});
-        //setWorkerbee({quantity: quantity -1});
-    } else {
-        setWorkerbee({...workerbee, points: workerbee.points - 10 });
+    const random = Math.floor(Math.random() * 3);
+    if(random === 2 ) {
+        if(workerbee.points - 10 === 0) {
+            console.log('10');
+            setWorkerbee({...workerbee, points: 75, quantity: workerbee.quantity - 1});
+        }else if (workerbee.points < 10) {
+            setWorkerbee({...workerbee, points: workerbee.points - 10  + 75, quantity: workerbee.quantity - 1});
+            //setWorkerbee({quantity: quantity -1});
+        } else {
+            setWorkerbee({...workerbee, points: workerbee.points - 10 });
+        }
     }
-    
     setDronebee({points: dronebee.points - 12})
 }
     return(
