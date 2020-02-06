@@ -17,15 +17,12 @@ export default function QueenBee() {
         message: 'Play, Game!'
     });
     const hitQueen = () => {
-        //setQueen({points: queen.points - 8});
         const random = Math.floor(Math.random() * 3);
         if (random === 0) {
             if (queen.points - 8 < 0) {
                 setQueen({ points: 0 })
                 setReset({ message: 'Wait 2s reset is on the way!' })
                 setTimeout(function reset() {
-                    //setReset({ message: 'Play, Game!'});
-                    console.log('szymon');
                     setQueen({ points: 100, quantity: 1 });
                     setWorkerbee({ points: 75, quantity: 5 });
                     setDronebee({ points: 50, quantity: 8 });
@@ -41,7 +38,6 @@ export default function QueenBee() {
                 setWorkerbee({ ...workerbee, points: 75, quantity: workerbee.quantity - 1 });
             } else if (workerbee.points < 10) {
                 setWorkerbee({ ...workerbee, points: workerbee.points - 10 + 75, quantity: workerbee.quantity - 1 });
-                //setWorkerbee({quantity: quantity -1});
             } else {
                 setWorkerbee({ ...workerbee, points: workerbee.points - 10 });
             }
